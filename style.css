@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: aqua;
+    padding: 5px;
+    text-align: center;
+}
+
+.form_input_div{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.form_select_div{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.form_button_div{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+::-webkit-scrollbar{
+    width:  2px
+}
+::-webkit-scrollbar-thumb{
+    background: rgb(253, 0, 0);
+}
+
+
+
+
+
+
+.quickSelect{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.quickSelect ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.quickSelect ul::-webkit-scrollbar{
+    height: 2px
+}
+.quickSelect ul::-webkit-scrollbar-thumb{
+    background: rgb(253, 0, 0);
+}
+
+.quickSelect ul li{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+
+
+
+/* ----------- */
+.question{
+    background-color: aquamarine;
+    margin: 10px;
+}
+/* ----------- */
+
+
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.all_list{
+    background-color: blueviolet;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 80vh;
+    scrollbar-width:none;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.all_list::-webkit-scrollbar {
+    width: 5px;
+}
+.all_list::-webkit-scrollbar-thumb {
+    background: gainsboro;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+.target_list{
+    background-color: chartreuse;
+}
