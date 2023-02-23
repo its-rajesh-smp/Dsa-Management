@@ -78,7 +78,7 @@ function creatCatagorie(select_chat){
     newDiv.append(newh2)
     
     let newh4=document.createElement('h4')
-    newh4.textContent="ss" //!
+    newh4.textContent="--" //!
 
     newDiv.append(newh4)
 
@@ -128,12 +128,13 @@ function AddToLocalStorage(problem,link,desc,select_type,select_chat){
     let questionDay=questionDate.getDate()
 
     let GenDate=new Date()
-    GenDate.setDate(questionDay+6)
+    GenDate.setDate(questionDay)  //!
     
     let revisonDate=GenDate.getDate() 
     let revisonMonth= GenDate.getMonth()+1
 
-
+    console.log(revisonDate);
+    console.log(revisonMonth);
     
     let obj={
         ProblemName:problem,
