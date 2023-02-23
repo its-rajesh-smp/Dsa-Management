@@ -1,3 +1,5 @@
+var map=new Map()
+
 document.querySelector(".btnAdd").addEventListener('click',(e)=>{
     e.preventdefault;
     let problem=document.querySelector('.problem').value;
@@ -11,22 +13,34 @@ document.querySelector(".btnAdd").addEventListener('click',(e)=>{
     let addingDate=new Date().getDate()
 
     AddtoList(problem,link,desc,select_type,select_chat,addingDate)
+    AddToLocalStorage(problem,link,desc,select_type,select_chat)
 })
 
 
 
+document.addEventListener('load',fetchDataFromLocalStorage())
 
 
-var map=new Map()
 
 
-function AddtoList(problem,link,desc,select_type,select_chat,date){
+
+
+
+
+
+
+
+
+function AddtoList(problem,link,desc,select_type,select_chat){
+
+    console.log(select_chat);
+
+
 
     // Creating chatagorie If dosenot exists
     if(!map.has(select_chat)){
         map.set(select_chat,`.${select_chat.toLowerCase()}`)
         creatCatagorie(select_chat)
-        console.log("ghghgh");
     };
 
     
@@ -35,7 +49,6 @@ function AddtoList(problem,link,desc,select_type,select_chat,date){
 
     
     let newQuestion=document.createElement('div')
-    // let newQuestion=document.createElement('div').classList.add("question")
     newQuestion.classList.add("question")
 
     let newProb=document.createElement('h4')
@@ -58,6 +71,8 @@ function AddtoList(problem,link,desc,select_type,select_chat,date){
 
 
     document.querySelector(getclass).append(newQuestion)
+
+ 
 }
 
 
@@ -79,3 +94,69 @@ function creatCatagorie(select_chat){
     document.querySelector('.all_list').append(newChat)
 
 }
+
+
+// Fetch Data
+function fetchDataFromLocalStorage(){
+    let object=Object.keys(localStorage)
+    
+    object.forEach((item)=>{
+        let getData= JSON.parse( localStorage[item]) 
+        AddtoList(getData.ProblemName,getData.Link,getData.Desc,getData.Type,getData.Catagorie)
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! --------------------------------------
+function AddToLocalStorage(problem,link,desc,select_type,select_chat){
+    
+    let questionDate=new Date()
+    let questionDay=questionDate.getDate()
+
+
+    let GenDate=new Date()
+    
+    GenDate.setDate(questionDay+6)
+    
+    let revisonDate=GenDate.getDate() 
+    let revisonMonth= GenDate.getMonth()+1
+
+
+    
+    let obj={
+        ProblemName:problem,
+        Link:link,
+        Desc:desc,
+        Type:select_type,
+        Catagorie:select_chat,
+        RevisonDate:revisonDate,
+        RevisonMonth:revisonMonth
+    }
+
+
+    localStorage.setItem(problem,JSON.stringify(obj))
+
+
+
+
+}
+//! --------------------------------------
