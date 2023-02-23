@@ -1,3 +1,4 @@
+// Map To Reduce If Else Statement check for catagorie
 var map=new Map()
 
 document.querySelector(".btnAdd").addEventListener('click',(e)=>{
@@ -8,6 +9,7 @@ document.querySelector(".btnAdd").addEventListener('click',(e)=>{
     let select_type=document.querySelector('#select_type').value;
     let select_chat=document.querySelector('#select_chat').value;
     
+    // Todo check if inputs are empty
     // if(problem==""||link==""||desc==""){alert("Missing Input Field")}
 
     let addingDate=new Date().getDate()
@@ -17,25 +19,13 @@ document.querySelector(".btnAdd").addEventListener('click',(e)=>{
 })
 
 
-
+// Fetch List On Load
 document.addEventListener('load',fetchDataFromLocalStorage())
 
 
 
 
-
-
-
-
-
-
-
-
 function AddtoList(problem,link,desc,select_type,select_chat){
-
-    console.log(select_chat);
-
-
 
     // Creating chatagorie If dosenot exists
     if(!map.has(select_chat)){
@@ -72,6 +62,8 @@ function AddtoList(problem,link,desc,select_type,select_chat){
 
     document.querySelector(getclass).append(newQuestion)
 
+    // Collecting The Count Of Each Catagorie
+    newQuestion.parentElement.children[0].children[1].textContent = newQuestion.parentElement.children.length-1
  
 }
 
@@ -86,20 +78,34 @@ function creatCatagorie(select_chat){
     newDiv.append(newh2)
     
     let newh4=document.createElement('h4')
-    newh4.textContent="Null" //!
+    newh4.textContent="ss" //!
+
     newDiv.append(newh4)
 
     newChat.append(newDiv)
 
     document.querySelector('.all_list').append(newChat)
-
 }
 
 
 // Fetch Data
 function fetchDataFromLocalStorage(){
     let object=Object.keys(localStorage)
-    
+
+    // Sort By Alphabatically Order
+    object.sort((a, b) => {
+        let nameA = JSON.parse(localStorage[a]).Catagorie.toUpperCase();
+        let nameB = JSON.parse(localStorage[b]).Catagorie.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    });
+
+    // Adding to the list
     object.forEach((item)=>{
         let getData= JSON.parse( localStorage[item]) 
         AddtoList(getData.ProblemName,getData.Link,getData.Desc,getData.Type,getData.Catagorie)
@@ -113,28 +119,15 @@ function fetchDataFromLocalStorage(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //! --------------------------------------
+//Function To Add data in storage
 function AddToLocalStorage(problem,link,desc,select_type,select_chat){
     
+    // Generating Date and forming the first revision date
     let questionDate=new Date()
     let questionDay=questionDate.getDate()
 
-
     let GenDate=new Date()
-    
     GenDate.setDate(questionDay+6)
     
     let revisonDate=GenDate.getDate() 
@@ -155,8 +148,7 @@ function AddToLocalStorage(problem,link,desc,select_type,select_chat){
 
     localStorage.setItem(problem,JSON.stringify(obj))
 
-
-
-
 }
 //! --------------------------------------
+
+
