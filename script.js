@@ -10,7 +10,7 @@ document.querySelector(".btnAdd").addEventListener('click',(e)=>{
     let select_chat=document.querySelector('#select_chat').value;
     
     // Todo check if inputs are empty
-    // if(problem==""||link==""||desc==""){alert("Missing Input Field")}
+    if(problem==""||link==""||desc==""){alert("Missing Input Field");return}
 
     let addingDate=new Date().getDate()
 
@@ -32,7 +32,6 @@ function AddtoList(problem,link,desc,select_type,select_chat){
         map.set(select_chat,`.${select_chat.toLowerCase()}`)
         creatCatagorie(select_chat)
     };
-
     
     // if exists
     let getclass=map.get(select_chat)
@@ -128,7 +127,7 @@ function AddToLocalStorage(problem,link,desc,select_type,select_chat){
     let questionDay=questionDate.getDate()
 
     let GenDate=new Date()
-    GenDate.setDate(questionDay)  //!
+    GenDate.setDate(questionDay)+1  //!
     
     let revisonDate=GenDate.getDate() 
     let revisonMonth= GenDate.getMonth()+1

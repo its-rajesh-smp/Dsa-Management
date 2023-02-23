@@ -1,27 +1,18 @@
-
-
-
-
-
-
-
-
 // Add To TargetList
 window.addEventListener('load',loadTarget())
 
 
 
 
-function loadTarget(){
-    
+function loadTarget(){    
 
     let questions=Object.keys(localStorage)
 
+    // Getting Todays Date
     let date=new Date()
     let todaysDate=date.getDate()
     let todaysMonth=date.getMonth()+1
 
-    console.log(todaysDate +" Today " +todaysMonth);
 
     questions.forEach((item)=>{
         let getItem=JSON.parse(localStorage[item])
@@ -32,12 +23,42 @@ function loadTarget(){
             createElement(getItem.ProblemName,getItem.Link,getItem.Type,getItem.Desc)
         }
     })
-
-
 }
 
 
+// Click On Done Button Increase Revision Date By 3
+document.querySelector('.target_list').addEventListener('click',(e)=>{
 
+    if(e.target.classList.contains('btnDone')){
+
+        if(confirm("Please Confirm First")==true){
+            let getProblem=localStorage.getItem(e.target.parentElement.children[0].textContent)
+
+            let deformObject=JSON.parse(getProblem)
+            let newQuestionName=deformObject.ProblemName
+            
+            let date=new Date()
+            date.setDate(deformObject.RevisonDate+3)
+            deformObject.RevisonDate=date.getDate()
+            deformObject.RevisonMonth=date.getMonth()+1
+            console.log(deformObject);
+
+            localStorage.setItem(newQuestionName,JSON.stringify(deformObject))
+
+            e.target.parentElement.remove()
+        }
+    }
+
+
+
+
+
+})
+
+
+
+
+// Creating New Lists
 function createElement(problem,link,type,desc){
     let newElement=document.createElement('div')
     newElement.classList.add('question')
@@ -62,6 +83,7 @@ function createElement(problem,link,type,desc){
 
     let newBtn=document.createElement('button')
     newBtn.textContent="DONE"
+    newBtn.classList.add('btnDone')
     newElement.append(newBtn)
 
     document.querySelector('.target_list').append(newElement)
