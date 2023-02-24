@@ -16,9 +16,13 @@ nav {
   font-family: "Courier New", Courier, monospace;
 }
 .nav_container_brand img {
+  margin-top: 5px;
   width: 40px;
+  border-radius: 50px;
+  box-shadow: 2px 2px black;
 }
 
+/* Input Field */
 .form_input_div {
   display: flex;
   justify-content: center;
@@ -35,6 +39,78 @@ nav {
   margin-top: 5px;
 }
 
+.inputField{
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 1px 1px black;
+  outline: none;
+}
+.inputField::placeholder{
+  color: #292b2d;
+}
+.cssDropdown{
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  outline: none;
+  user-select: none;
+  box-shadow: 1px 1px black;
+}
+.cssAddBtn{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #222831;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px black;
+
+  transition-property: background-color;
+  transition-duration: 200ms;
+
+}
+.cssAddBtn:hover{
+  background-color: #4a4c4d;
+}
+
+/* SearchBar */
+.searchBarDiv{
+  display: flex;
+  
+}
+.searchBar_inp{
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px black;
+  outline: none;
+}
+.searchBar_btn{
+  padding: 10px;
+  outline: none;
+  background-color: #222831;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+.searchBar_inp::placeholder{
+  color: #292b2d;
+}
+
+
+
+
+/* ------ */
 ::-webkit-scrollbar {
   width: 2px;
 }
@@ -43,8 +119,6 @@ nav {
 }
 
 .quickSelect {
-  /* margin-top: 10px; */
-  /* margin-bottom: 5px; */
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 5px solid #6c8cbe;

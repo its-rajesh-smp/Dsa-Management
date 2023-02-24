@@ -36,18 +36,18 @@
             <form action="#">
                 <div class="form-input">
                     <div class="form_input_div">
-                        <input class="problem" placeholder="Question" type="text">
-                        <input class="link" placeholder="URL" type="text">
-                        <input class="desc" placeholder="Remark" type="text">
+                        <input class="problem inputField" placeholder="Question" type="text">
+                        <input class="link inputField" placeholder="URL" type="text">
+                        <input class="desc inputField" placeholder="Remark" type="text">
                     </div>
 
                     <div class="form_select_div">
-                        <select title="Type" id="select_type">
+                        <select title="Type" id="select_type" class="cssDropdown">
                             <option value="Easy">Easy</option>
                             <option value="Medium">Medium</option>
                             <option value="Hard">Hard</option>
                         </select>
-                        <select title="Catagorie" id="select_chat">
+                        <select title="Catagorie" id="select_chat" class="cssDropdown">
                             <option value="Array">Array</option>
                             <option value="String">String</option>
                             <option value="Search">Search</option>
@@ -58,10 +58,14 @@
                             <option value="Sorting">Sorting</option>
                             <option value="Recursion">Recursion</option>
                         </select>
+                        <div class="searchBarDiv">
+                            <input placeholder="Search Your Question" class="searchBar_inp" type="text" name="" id="">
+                            <button class="searchBar_btn" ><i style="color:rgb(137, 137, 223)" class='bx bx-search-alt'></i></button>
+                        </div>
                     </div>
 
                     <div class="form_button_div">
-                        <button type="button" class="btnAdd">Add</button>
+                        <button type="button" class="btnAdd cssAddBtn">Add<i style="margin-left: 5px;" class='bx bx-message-square-add'></i></button>
                     </div>
                 </div>
             </form>
@@ -69,7 +73,7 @@
 
         <div class="quickSelect">
             <ul>
-                <li>Array</li>
+                <li style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;" >Array</li>
                 <li>String</li>
                 <li>Search</li>
                 <li>Stack</li>
@@ -77,7 +81,7 @@
                 <li>LinkedList</li>
                 <li>BitManipulation</li>
                 <li>Sorting</li>
-                <li>Recursion</li>
+                <li style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;" >Recursion</li>
             </ul>
         </div>
 
@@ -95,7 +99,7 @@
 
                 <!--TODO Demo List -->
                 <div class="target_list_div">
-                    <h2 class="target_list_div_h2">Todays Revision Question</h2>
+                    <h2 class="target_list_div_h2">Today's Revision Question</h2>
                 </div>
                 <div class="target_list_container">
                     <!--
