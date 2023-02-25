@@ -10,6 +10,7 @@ nav {
   background-color: #222831;
   padding: 5px;
   text-align: center;
+  user-select: none;
 }
 .nav_container {
   color: whitesmoke;
@@ -44,8 +45,9 @@ nav {
   border-radius: 5px;
   margin-left: 5px;
   margin-right: 5px;
-  box-shadow: 1px 1px black;
+  box-shadow: 1px 2px black;
   outline: none;
+  border: none;
 }
 .inputField::placeholder{
   color: #292b2d;
@@ -57,7 +59,8 @@ nav {
   border-radius: 5px;
   outline: none;
   user-select: none;
-  box-shadow: 1px 1px black;
+  box-shadow: 1px 2px black;
+  border: none;
 }
 .cssAddBtn{
   padding-top: 10px;
@@ -67,8 +70,9 @@ nav {
   background-color: #222831;
   color: white;
   border-radius: 5px;
-  box-shadow: 1px 1px black;
-
+  box-shadow: 1px 2px black;
+  margin-top: 10px;
+  user-select: none;
   transition-property: background-color;
   transition-duration: 200ms;
 
@@ -80,6 +84,7 @@ nav {
 /* SearchBar */
 .searchBarDiv{
   display: flex;
+  user-select: none;
   
 }
 .searchBar_inp{
@@ -122,6 +127,7 @@ nav {
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 5px solid #6c8cbe;
+  user-select: none;
 }
 .quickSelect ul {
   display: flex;
@@ -144,9 +150,21 @@ nav {
   background-color: #00adb5;
   margin-left: 1px;
   margin-right: 1px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
+  cursor:pointer;
+  box-shadow: 1px 3px black;
+  transition-property: transform, background-color, color ;
+  transition-delay: 100ms,100ms,100ms;
+  transition-duration: 200ms,200ms,200ms;
 
+}
+.quickSelect ul li:hover{
+  transform:translateY(-5px);
+  background-color: #00acb56f;
+  color: rgb(206, 201, 201);
+}
 /* ----------- */
 .question {
   background-color: #b7c4cf;
@@ -278,4 +296,64 @@ footer div {
 .footer_p {
   color: #eeeeee;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* AlartBox */
+.alartBox{
+  position: absolute;
+  width: 30vw;
+  height: 50px;
+  background-color: #00adb5;
+  border-radius: 5px;
+  margin-top: 10px;
+  right: 1%;
+  user-select: none;
+  border: 2px solid #6c8cbe;
+  box-shadow: 2px 2px black;
+  overflow: hidden;
+  display: none;
+  opacity:1;
+
+}
+.alartMessage{
+  padding: 10px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  word-wrap: none;
+ 
+}
+.animationAlart{
+    animation-name: alart;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes alart {
+  0%{
+    width: 0px;
+  }
+  25%{
+    width: 30vw;
+  }
+  50%{
+    width: 30vw;
+  }
+  75%{
+    width: 30vw;
+  }
+  100%{
+    opacity: 0;
+  }
 }

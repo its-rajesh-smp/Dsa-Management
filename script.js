@@ -3,9 +3,9 @@ var map = new Map()
 
 document.querySelector(".btnAdd").addEventListener('click', (e) => {
     e.preventdefault;
-    let problem = document.querySelector('.problem').value;
-    let link = document.querySelector('.link').value;
-    let desc = document.querySelector('.desc').value;
+    let problem =     document.querySelector('.problem').value;
+    let link =        document.querySelector('.link').value;
+    let desc =        document.querySelector('.desc').value;
     let select_type = document.querySelector('#select_type').value;
     let select_chat = document.querySelector('#select_chat').value;
 
@@ -16,6 +16,23 @@ document.querySelector(".btnAdd").addEventListener('click', (e) => {
 
     AddtoList(problem, link, desc, select_type, select_chat, addingDate)
     AddToLocalStorage(problem, link, desc, select_type, select_chat)
+    
+    // todo Making Field Blank
+    document.querySelector('.problem').value=""
+    document.querySelector('.link').value=""
+    document.querySelector('.desc').value=""
+    document.querySelector('#select_type').value="Easy"
+    document.querySelector('#select_chat').value="Array"
+
+
+    document.querySelector(".alartBox").style.display="block"
+    document.querySelector(".alartBox").classList.add('animationAlart')
+    // AlartBox
+    setTimeout(()=>{
+        document.querySelector(".alartBox").classList.remove('animationAlart')
+        document.querySelector(".alartBox").style.display="none"
+    },4000)
+    
 })
 
 
@@ -160,5 +177,14 @@ function AddToLocalStorage(problem, link, desc, select_type, select_chat) {
 
 }
 //! --------------------------------------
+
+
+
+// Scroll To Section
+document.querySelector(".quickSelect").addEventListener('click',(e)=>{
+    let target=`.${e.target.textContent.toLowerCase()}`
+    if(!map.has(e.target.textContent)){return;}
+    document.querySelector(target).scrollIntoView({"behavior":"smooth"})
+})
 
 
