@@ -15,12 +15,29 @@ nav {
 .nav_container {
   color: whitesmoke;
   font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: space-around;
+}
+.nav_container_brand{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_brandName{
+  font-size: small;
 }
 .nav_container_brand img {
   margin-top: 5px;
   width: 40px;
   border-radius: 50px;
   box-shadow: 2px 2px black;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+.nav_container_brand_product{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Input Field */
@@ -229,6 +246,15 @@ nav {
 
 .target_list {
   background-color: #eeeeee;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height:80vh ;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+}
+.target_list_container{
+
 }
 .target_list_div{
   display: flex;
