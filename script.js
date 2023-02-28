@@ -97,13 +97,14 @@ function creatCatagorie(select_chat) {
     newChat.classList.add(select_chat.toLowerCase())
 
     let newDiv = document.createElement('div')
+    newDiv.classList.add('chat_div')
     let newh2 = document.createElement('p')
-    newh2.classList.add('h2')
+    newh2.classList.add('chat_div_chat')
     newh2.textContent = select_chat
     newDiv.append(newh2)
 
     let newh4 = document.createElement('p')
-    newh4.classList.add("h4")
+    newh4.classList.add("chat_div_count")
     newh4.textContent = "--" //!
 
     newDiv.append(newh4)

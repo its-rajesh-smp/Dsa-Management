@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 /* -------------------------- */
 * {
   margin: 0;
@@ -184,18 +186,17 @@ nav {
 }
 /* ----------- */
 .question {
-  background-color: #b7c4cf;
-  margin: 10px;
+  background-color: #bbd7ee;
+  margin: 5px;
   padding: 10px;
-  border: 1px solid #6e85b7;
+  border: 1px solid #8da0c9;
   border-radius: 5px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.301);
 }
 .prob{
-  background-color: #d7e3e4;
-  border-radius: 5px;
-  font-size: x-large;
-  padding: 5px;
+  border-bottom: 1px solid black;
   margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
 }
 .link{
   text-decoration: none;
@@ -231,18 +232,40 @@ nav {
   border-radius: 10px;
 }
 
-.h2 {
-  color: black;
-  margin-left: 10px;
-  margin-top: 10px;
-  font-size: large;
-  font-family: "Roboto Mono", monospace;
+
+/* Catagories */
+.chat_div{
+  display: flex;
+  align-items: center;
+  font-size:x-large;
+  font-family: 'Roboto Mono', monospace;
+  margin-top: 2px;
 }
-.h4 {
+.chat_div_chat{
+
   margin-left: 10px;
-  margin-top: 5px;
-  font-size: larger;
 }
+.chat_div_count{
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .target_list {
   background-color: #eeeeee;

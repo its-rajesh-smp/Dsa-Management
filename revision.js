@@ -44,8 +44,7 @@ document.querySelector('.target_list_container').addEventListener('click',(e)=>{
             date.setDate(deformObject.RevisonDate+3)
             deformObject.RevisonDate=date.getDate()
             deformObject.RevisonMonth=date.getMonth()+1
-            console.log(deformObject);
-
+          
             localStorage.setItem(newQuestionName.toLowerCase().replace(/ /g, ''),JSON.stringify(deformObject))
 
             e.target.parentElement.remove()
