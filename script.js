@@ -127,7 +127,7 @@ function AddToLocalStorage(problem,link,desc,select_type,select_chat){
     let questionDay=questionDate.getDate()
 
     let GenDate=new Date()
-    GenDate.setDate(questionDay)+1  //!
+    GenDate.setDate(questionDay+1)  //!
     
     let revisonDate=GenDate.getDate() 
     let revisonMonth= GenDate.getMonth()+1
