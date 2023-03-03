@@ -70,6 +70,8 @@ function createElement(problem,link,type,desc){
 
     let newlink=document.createElement('a')
     newlink.setAttribute('href',link)
+    newlink.setAttribute('target',"_blank")
+
     newlink.textContent="LINK"
     newElement.append(newlink)
 
