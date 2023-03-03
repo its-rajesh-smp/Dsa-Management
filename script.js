@@ -11,7 +11,7 @@ document.querySelector(".btnAdd").addEventListener('click', (e) => {
 
     // Todo check if inputs are empty
     if (problem == "" || link == "" || desc == "") { alert("Missing Input Field"); return }
-
+    if(localStorage.getItem(problem.toLowerCase().replace(/ /g, ''))){alert("Already Present Try To Use Another Problem Name"); return }
     let addingDate = new Date().getDate()
 
     AddtoList(problem, link, desc, select_type, select_chat, addingDate)
@@ -42,20 +42,27 @@ function AddtoList(problem, link, desc, select_type, select_chat) {
 
     let newProb = document.createElement('h4')
     newProb.textContent = problem
+    newProb.classList.add("prob")
     newQuestion.append(newProb)
 
     let newlink = document.createElement('a')
     newlink.setAttribute('href', link)
     newlink.setAttribute('target', "_blank")
-    newlink.textContent = "Link"
+    newlink.innerHTML = "<i class='bx bx-link-alt' > Link</i>"
+    newlink.classList.add('link')
     newQuestion.append(newlink)
 
     let newtype = document.createElement('p')
     newtype.textContent = select_type
+    if(select_type=="Easy"){newtype.style.color='Green'}
+    if(select_type=="Medium"){newtype.style.color='#a09a04'}
+    if(select_type=="Hard"){newtype.style.color='Red'}
+    newtype.classList.add('type')
     newQuestion.append(newtype)
 
     let newdesc = document.createElement('p')
     newdesc.textContent = desc
+    newdesc.classList.add('desc')
     newQuestion.append(newdesc)
 
 
@@ -149,7 +156,7 @@ function AddToLocalStorage(problem, link, desc, select_type, select_chat) {
     }
 
 
-    localStorage.setItem(problem, JSON.stringify(obj))
+    localStorage.setItem(problem.toLowerCase().replace(/ /g, ''), JSON.stringify(obj))
 
 }
 //! --------------------------------------
